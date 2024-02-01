@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class CharacterMovement : MonoBehaviour
 {
     Rigidbody rb;
+    public AmmoControl ammoController;
     float speed = 10;
 
     float jumpHeight = 500;
@@ -84,5 +85,15 @@ public class CharacterMovement : MonoBehaviour
     void StopDash()
     {
         rb.velocity = Vector2.zero;
+    }
+
+    void OnFire()
+    {
+        ammoController.Shoot();
+    }
+
+    void OnReload()
+    {
+        ammoController.Reload();
     }
 }
